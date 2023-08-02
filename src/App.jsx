@@ -1,34 +1,47 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Index from "./index";
+import ArticleItem from "./components/Articles/ArticleItem";
+import SignUp from "./components/Signup";
+import Login from "./components/Login";
+import AllArticles from "./components/Articles/AllArticles";
+import Submit from "./components/Submit";
+import Error from "./components/Error";
+import { UserContext } from "./components/Context/UserContext";
+import SubmitComment from "./components/Comments/SubmitComment";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <UserContext.Provider value={{ loggedInUser }}>
+      <div className="App">
+        <Header loggedInUser={loggedInUser} />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="articles/:article_id" element={<ArticleItem loggedInUser={loggedInUser}/>} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/login"
+            element={<Login setLoggedInUser={setLoggedInUser} />}
+          />
+          <Route path="/articles" element={<AllArticles />} />
+          <Route
+            path="/post"
+            element={<Submit loggedInUser={loggedInUser} />}
+          />
+          <Route
+            path="articles/:article_id/addcomment"
+            element={<SubmitComment loggedInUser={loggedInUser} />}
+          />
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </UserContext.Provider>
   );
 }
 

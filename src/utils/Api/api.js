@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newsApi = axios.create({
-  baseURL: "https://rose-grumpy-angler.cyclic.app/api",
+  baseURL: "https://androsnews.onrender.com/api",
 });
 
 export const getArticleById = async (articleId) => {
@@ -11,11 +11,11 @@ export const getArticleById = async (articleId) => {
   return article;
 };
 
-export const getArticles = async (sort_by, order, topic, limit = 0, p) => {
+export const getArticles = async (sortBy, order, topic, limit = 0, p) => {
   const {
     data: { articles, total_count },
   } = await newsApi.get(`/articles`, {
-    params: { sort_by, order, topic, limit, p },
+    params: { sort_by: sortBy, order, topic, limit, p },
   });
   return [articles, total_count];
 };
@@ -50,9 +50,9 @@ export const getCommentsByArticleId = async (articleId, limit, p) => {
 
 export const postCommentByArticleId = async (articleId, newCommentObj) => {
   const {
-    data: { comment },
+    data: { newComment },
   } = await newsApi.post(`/articles/${articleId}/comments`, newCommentObj);
-  return comment;
+  return newComment;
 };
 
 export const patchVotesCommentById = async (commentId, votesObj) => {
@@ -86,4 +86,11 @@ export const getUsers = async () => {
     data: { users },
   } = await newsApi.get("/users");
   return users;
+};
+
+export const postUser = async (newUserObj) => {
+  const {
+    data: { user },
+  } = await newsApi.post(`/users`, newUserObj);
+  return user;
 };

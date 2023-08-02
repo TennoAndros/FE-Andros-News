@@ -1,36 +1,39 @@
 import Author from "../Author";
 import { Link } from "react-router-dom";
 
-const PopularArticleCard = ({ article, userImg }) => {
+const TopicCard = ({ article, userImg }) => {
   const dateString = article.created_at;
   const dateTime = new Date(dateString);
   const formattedDate = dateTime.toLocaleDateString("en-GB");
+
   return (
-    <div className="grid md:grid-cols-2">
-      <div className="image">
+    <div className="flex gap-5">
+      <div className="image flex justify-start">
         <img
           src={article.article_img_url}
           alt="Image"
-          className="w-[600px] h-[600px] rounded"
+          className="w-[250px] h-[200px] rounded"
         />
       </div>
-      <div className="info flex justify-center flex-col">
+      <div className="info flex flex-col justify-center">
         <div className="category">
-          <span className="text-[#ffaa00] ">{article.topic}</span>
+          <span className="text-[#ffaa00]">
+            {article.topic}
+          </span>
           <span className="text-[#48cae4]">-{formattedDate}</span>
         </div>
-        <div className="title ">
+        <div className="title flex flex-col justify-start">
           <Link
             to={`articles/${article.article_id}`}
-            className="text-3xl md:text-4xl font-bold text-[#0096c7] hover:text-[#48cae4]"
+            className="text-xl font-bold text-[#0096c7] hover:text-[#48cae4] truncate max-w-[250px]"
           >
             {article.title}
           </Link>
         </div>
-        <p className="text-[#00b4d8] py-4">{article.body}</p>
         <Author author={article.author} userImg={userImg} />
       </div>
     </div>
   );
 };
-export default PopularArticleCard;
+
+export default TopicCard;

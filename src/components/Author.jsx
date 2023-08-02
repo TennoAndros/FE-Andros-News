@@ -1,19 +1,15 @@
-const Author = ({ article }) => {
+const Author = ({ author,userImg }) => {
   return (
     <div className="author flex py-5">
       <img
         className="rounded-full w-[60px] h-[60px]"
-        src="https://blog.hootsuite.com/wp-content/uploads/2020/02/Image-copyright-556x556.png.webp"
-        alt="imageP"
+        src={userImg}
+        alt="Author Image"
       />
       <div className="flex flex-col justify-center px-4">
-        <link rel="/" href="" />
-        <a
-          className="text-md font-bold text-gray-800 hover:text-gray-600"
-          href=""
-        >
-         {article}
-        </a>
+        <span className="text-md font-bold text-[#f48c06]">
+          {author}
+        </span>
       </div>
     </div>
   );

@@ -1,55 +1,34 @@
-import Author from "../Author";
+import ArticleCard from "./ArticleCard";
+import { Link } from "react-router-dom";
 
-const ArticleList = ({ articles }) => {
+
+const ArticleList = ({ articles,users }) => {
+  
+
   return (
     <section className="container mx-auto md:px-20 py-10">
-      <h1 className="font-bold text-4xl py-12 text-center ">Articles</h1>
+      <Link to="/articles">
+        <h1 className="font-bold text-4xl py-12 text-center text-[#0096c7] hover:text-[#48cae4] cursor-pointer">
+          Articles
+        </h1>
+      </Link>
       {/* grid columns */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
         {" "}
-        {articles.map((article) => (
-          <Post key={article.article_id} article={article} />
-        ))}
+        {articles.map((article) => {
+          const userArr = users.find(
+            (user) => user.username === article.author
+          );
+          return (
+            <ArticleCard
+              key={article.article_id}
+              article={article}
+              userImg={userArr.avatar_url}
+            />
+          );
+        })}
       </div>
     </section>
-  );
-};
-
-const Post = ({ article }) => {
-  const dateString = article.created_at;
-  const dateTime = new Date(dateString);
-  const formattedDate = dateTime.toLocaleDateString("en-GB");
-
-  return (
-    <div className="items truncate">
-      <div className="image">
-        <img
-          src={article.article_img_url}
-          alt="Image"
-          className="w-[500px] h-[350px] rounded"
-        />
-      </div>
-      <div className="info flex justify-center flex-col py-4">
-        <div className="category h-7">
-          <a className="text-orange-600 hover:text-orange-800" href="">
-            {article.topic}
-          </a>
-          <a className="text-gray-800 hover:text-gray-600 " href="">
-            -{formattedDate}
-          </a>
-        </div>
-        <div className="title truncate" >
-          <a
-            href=""
-            className="text-xl font-bold text-gray-800 hover:text-blue-600"
-          >
-            {article.title}
-          </a>
-        </div>
-        <p className="text-gray-500 py-4 truncate">{article.body}</p>
-        <Author article={article.author} />
-      </div>
-    </div>
   );
 };
 

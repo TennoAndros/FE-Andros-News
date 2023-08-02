@@ -12,7 +12,7 @@ FE-Andros-News is a frontend application that allows users to interact with the 
 
 ## Link to Deployed Version
 
-You can access the deployed version of FE-Andros-News [here](https://your-deployed-app-url.com).
+You can access the deployed version of FE-Andros-News [here](https://mugglenews.netlify.app).
 
 ## Link to Backend API Repository
 

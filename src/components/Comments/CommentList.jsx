@@ -92,6 +92,7 @@ const CommentList = ({ articleId, loggedInUser }) => {
             articleId={articleId}
             setComments={setComments}
             setShowSubmitComment={setShowSubmitComment}
+            setTotalCount={setTotalCount}
           />
         </div>
       )}

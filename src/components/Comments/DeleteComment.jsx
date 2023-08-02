@@ -18,7 +18,7 @@ const DeleteComment = ({ commentId, setComments, setTotalCount }) => {
           return comment.comment_id !== commentId;
         });
       });
-      setTotalCount((currCount) => currCount - 1);
+      setTotalCount((currCount) => currCount--);
       setIsLoading(false);
     } catch (err) {
       setError(err);

@@ -8,6 +8,7 @@ const SubmitComment = ({
   articleId,
   setComments,
   setShowSubmitComment,
+  setTotalCount,
 }) => {
   const [postNewComment, setPostNewComment] = useState({
     author: loggedInUser,
@@ -28,6 +29,7 @@ const SubmitComment = ({
       console.log(newComment);
       setSuccessMessage("Comment Added");
       setComments((currComments) => [...currComments, newComment]);
+      setTotalCount((currCount) => currCount++);
       setIsLoading(false);
       setShowSubmitComment(false);
     } catch (err) {

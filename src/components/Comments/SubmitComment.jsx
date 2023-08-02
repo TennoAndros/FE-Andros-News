@@ -29,7 +29,7 @@ const SubmitComment = ({
       console.log(newComment);
       setSuccessMessage("Comment Added");
       setComments((currComments) => [...currComments, newComment]);
-      setTotalCount((currCount) => currCount++);
+      setTotalCount((currCount) => ++currCount);
       setIsLoading(false);
       setShowSubmitComment(false);
     } catch (err) {

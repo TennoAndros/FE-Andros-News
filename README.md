@@ -1,6 +1,6 @@
 # Muggle-News
 
-FE-Andros-News is a frontend application that allows users to interact with the Andros-News API through a user-friendly interface.
+Muggle-News is a frontend application that allows users to interact with the Andros-News API through a user-friendly interface.
 
 ## Table of Contents
 

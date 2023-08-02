@@ -1,4 +1,4 @@
-# FE-Andros-News
+# Muggle-News
 
 FE-Andros-News is a frontend application that allows users to interact with the Andros-News API through a user-friendly interface.
 

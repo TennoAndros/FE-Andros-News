@@ -1,8 +1,8 @@
-# Muggle-News
+# 📖 Muggle-News
 
 Muggle-News is a frontend application that allows users to interact with the Andros-News API through a user-friendly interface.
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Link to Deployed Version](#link-to-deployed-version)
 - [Link to Backend API Repository](#link-to-backend-api-repository)

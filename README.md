@@ -49,7 +49,7 @@ The Andros News App includes the following features and functionality:
 - **Displaying Votes**: The application displays the number of votes for each article and comment.
 - **Voting**: Logged in users can upvote or downvote articles and comments.
 
-## Installation Instructions
+## 🛠️ Installation Instructions
 
 ### Prerequisites
 

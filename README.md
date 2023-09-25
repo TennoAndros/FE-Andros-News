@@ -12,7 +12,7 @@ Muggle-News is a frontend application that allows users to interact with the And
 
 ## Link to Deployed Version
 
-You can access the deployed version of FE-Andros-News [here](https://mugglenews.netlify.app).
+You can access the deployed version of Muggle-News [here](https://mugglenews.netlify.app).
 
 ## Link to Backend API Repository
 
